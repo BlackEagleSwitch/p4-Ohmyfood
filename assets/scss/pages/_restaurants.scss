@@ -1,0 +1,79 @@
+.imgRestaurants {
+    @include w-h(100%, 275px);
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    top: 63px;
+}
+
+.sectMenus {
+    row-gap: 40px;
+    @include flex-column;
+    background-color: $background-color;
+    border-radius: 40px;
+    padding: 32px 13px;
+    margin-top: 220px;
+
+    span {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            font-size: 28px;
+            font-weight: 100;
+            font-family: 'Shrikhand', sans-serif;
+        }
+
+        .containerHeart {
+            margin-right: 28px;
+            position: relative;
+            top: 6px;
+        }
+    }
+
+    .containerMenus {
+        @include flex-column;
+        row-gap: 12px;
+
+        .typeMenus {
+            @include roboto(16px, 300);
+        }
+
+        .typeMenus::after {
+            content: '';
+            display: flex;
+            margin-top: 4px;
+            @include w-h(40px, 3px);
+            background-color: $third-color;
+        }
+
+        ul {
+            @include flex-column;
+            row-gap: 12px;
+
+            li {
+                height: 69px;
+                display: flex;
+                border-radius: 15px;
+                background-color: white;
+                @include shadow(#0000001A);
+                @include roboto(15px, 700);
+
+                p {
+                    width: 88%;
+                    @include roboto(18px, 500);
+                    line-height: 22px;
+                    padding: 12px 15px;
+                }
+
+                span {
+                    @include roboto(15px, 300);
+                }
+                
+                b {
+                    margin-top: 37px;
+                }
+            }
+        }
+    }
+}
