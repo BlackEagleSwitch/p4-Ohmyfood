@@ -1,0 +1,49 @@
+footer {
+    row-gap: 16px;
+    @include flex-column;
+    background-color: #353535;
+    padding: 22px 25px;
+
+    h3 {
+        font-size: 18px;
+        font-weight: 100;
+        font-family: 'Shrikhand', sans-serif;
+        color: white;
+    }
+
+    ul {
+        @include flex-column;
+        row-gap: 7px;
+
+        a {
+            position: relative;
+            @include roboto(16px, 500);
+            color: white;
+        }
+
+        a::before {
+            font-size: 13px;
+            @include fontAwesome;
+            position: absolute;
+            top: 2px;
+            left: -20px;
+        }
+
+        a:hover {
+            opacity: .5;
+        }
+
+        #ustensil,
+        #hands {
+            margin-left: 20px;
+        }
+
+        #ustensil::before {
+            content: '\f2e7';
+        }
+
+        #hands::before {
+            content: '\f4c4';
+        }
+    }
+}

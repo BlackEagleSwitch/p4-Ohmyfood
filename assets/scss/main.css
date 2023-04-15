@@ -75,6 +75,54 @@ nav input::placeholder {
   color: #353535;
 }
 
+footer {
+  row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: #353535;
+  padding: 22px 25px;
+}
+footer h3 {
+  font-size: 18px;
+  font-weight: 100;
+  font-family: "Shrikhand", sans-serif;
+  color: white;
+}
+footer ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+}
+footer ul a {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+footer ul a::before {
+  font-size: 13px;
+  content: "";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  top: 2px;
+  left: -20px;
+}
+footer ul a:hover {
+  opacity: 0.5;
+}
+footer ul #ustensil,
+footer ul #hands {
+  margin-left: 20px;
+}
+footer ul #ustensil::before {
+  content: "\f2e7";
+}
+footer ul #hands::before {
+  content: "\f4c4";
+}
+
 .reservation {
   row-gap: 15px;
   display: flex;
@@ -237,14 +285,15 @@ nav input::placeholder {
   font-weight: 300;
   font-family: "Roboto", sans-serif;
 }
+.sectCards ul .desc .containerHeart {
+  position: absolute;
+  top: 23px;
+  right: 25px;
+}
 
 .containerHeart {
   width: 28px;
   height: 28px;
-  position: absolute;
-  z-index: 5;
-  top: 23px;
-  right: 25px;
 }
 .containerHeart i {
   font-size: 1.5em;

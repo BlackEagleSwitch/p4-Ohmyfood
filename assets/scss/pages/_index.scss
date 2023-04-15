@@ -109,6 +109,7 @@
     ul {
         @include flex-column;
         row-gap: 18px;
+
         img {
             border-radius: 15px 15px 0 0;
             @include w-h(100%, 174px);
@@ -133,6 +134,12 @@
                 span {
                     @include roboto(17px, 300);
                 }
+            }
+
+            .containerHeart {
+                position: absolute;
+                top: 23px;
+                right: 25px;
             }
         }
     }
