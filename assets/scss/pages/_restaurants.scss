@@ -11,7 +11,7 @@
     @include flex-column;
     background-color: $background-color;
     border-radius: 40px;
-    padding: 32px 13px;
+    padding: 40px 13px;
     margin-top: 220px;
 
     span {
@@ -71,9 +71,9 @@
 
                 span {
                     @include roboto(15px, 300);
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
                     overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
                 
                 b {
@@ -83,7 +83,6 @@
                 }
                 b::after {
                     display: flex;
-                    font-size: 0;
                     @include center;
                     @include w-h(0, 69px);
                     @include fontAwesome('\f058');
@@ -92,6 +91,7 @@
                     margin-left: 15px;
                     transition: .5s;
                     color: white;
+                    font-size: 0;
                     position: relative;
                     top: 14px;
                 }
@@ -104,5 +104,14 @@
                 }
             }
         }
+    }
+
+    a {
+        @include button;
+        margin: auto;
+    }
+
+    a:hover {
+        @include button-hover;
     }
 }
