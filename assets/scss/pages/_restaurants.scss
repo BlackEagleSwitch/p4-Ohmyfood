@@ -59,6 +59,12 @@
                 background-color: white;
                 @include shadow(#0000001A);
                 @include roboto(15px, 700);
+                @for $i from 1 through 4 {
+                    &:nth-child(#{$i}){
+                        animation-delay: .5s*$i;
+                    }
+                }
+                animation: happen 1.5s both;
 
                 p {
                     width: 100%;
