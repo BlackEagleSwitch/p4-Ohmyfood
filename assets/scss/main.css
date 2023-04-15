@@ -1,1 +1,68 @@
-/*# sourceMappingURL=main.css.map */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 100;
+  font-family: "Shrikhand", sans-serif;
+}
+
+header {
+  height: 63px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1490196078);
+}
+header .fa-arrow-left {
+  font-size: 1.2em;
+  position: absolute;
+  top: 23px;
+  left: 23px;
+}
+
+nav {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EAEAEA;
+}
+nav input {
+  width: 35%;
+  height: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  background-color: #EAEAEA;
+  padding-left: 10px;
+}
+nav input::-moz-placeholder {
+  color: black;
+}
+nav input::placeholder {
+  color: black;
+}/*# sourceMappingURL=main.css.map */

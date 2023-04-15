@@ -6,11 +6,11 @@
 
 @import "./layout/loader";
 @import "./layout/header";
+@import "./layout/nav";
+@import "./layout/footer";
 
 @import "./pages/index";
 @import "./pages/restaurants";
-
-@import "./layout/footer";
 
 @import "./utils/mediaquery";
 @import "./utils/keyframe";
