@@ -7,6 +7,7 @@
 }
 
 a {
+  all: unset;
   text-decoration: none;
   color: black;
 }
@@ -58,9 +59,9 @@ nav .fa-location-dot {
   color: #353535;
 }
 nav input {
+  text-align: center;
   width: 35%;
   height: 20px;
-  text-align: center;
   font-size: 16px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
@@ -172,11 +173,11 @@ nav input::placeholder {
   color: #9356DC;
 }
 .fonctionnement ul li::before {
-  width: 24px;
-  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
   content: counter(counter);
   counter-increment: counter;
   font-size: 14px;
@@ -187,4 +188,90 @@ nav input::placeholder {
   color: white;
   position: absolute;
   left: -12px;
+}
+
+.sectCards {
+  row-gap: 25px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F6F6F6;
+  padding: 54px 20px 66px;
+}
+.sectCards h2 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+.sectCards ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+.sectCards ul img {
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 174px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.sectCards ul .desc {
+  height: 77px;
+  display: flex;
+  background-color: white;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1019607843);
+  position: relative;
+  top: -3px;
+}
+.sectCards ul .desc p {
+  width: 265px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  padding: 16px 20px 16px 13px;
+}
+.sectCards ul .desc p span {
+  font-size: 17px;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+}
+
+.containerHeart {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  z-index: 5;
+  top: 23px;
+  right: 25px;
+}
+.containerHeart i {
+  font-size: 1.5em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.containerHeart .fas {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  font-size: 0;
+  background: -webkit-linear-gradient(-10deg, #9356DC -5.2%, #FF79DA 110.74%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
+.containerHeart:hover .fas {
+  animation: heart 0.5s forwards;
+}
+
+@keyframes heart {
+  100% {
+    opacity: 1;
+    font-size: 1.65em;
+    margin-top: 1.5px;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,31 @@
+.containerHeart {
+    @include w-h(28px, 28px);
+    position: absolute;
+    z-index: 5;
+    top: 23px;
+    right: 25px;
+
+    i {
+        font-size: 1.5em;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
+
+    .fas {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        font-size: 0;
+        background: -webkit-linear-gradient(-10deg, $primary-color -5.2%, $second-color 110.74%);
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+.containerHeart:hover {
+    .fas {
+        animation: heart .5s forwards;
+    }
+}

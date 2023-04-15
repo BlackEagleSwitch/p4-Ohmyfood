@@ -9,9 +9,8 @@ nav {
     }
 
     input {
-        width: 35%;
-        height: 20px;
         text-align: center;
+        @include w-h(35%, 20px);
         @include roboto(16px, 500);
         background-color: #EAEAEA;
         padding-left: 10px;

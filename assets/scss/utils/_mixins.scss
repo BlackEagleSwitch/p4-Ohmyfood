@@ -1,3 +1,8 @@
+@mixin w-h ($width: 0, $height: 0) {
+    width: $width;
+    height: $height;
+}
+
 @mixin flex-row {
     display: flex;
     flex-direction: row;
@@ -36,8 +41,8 @@
     box-shadow: 0 4px 10px #00000059;
 }
 
-@mixin shadow {
-    box-shadow: 0 4px 15px #00000026;
+@mixin shadow ($color: '') {
+    box-shadow: 0 4px 15px $color;
 }
 
 @mixin fontAwesome ($content: '') {
