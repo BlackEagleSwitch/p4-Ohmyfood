@@ -1,0 +1,47 @@
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin center {
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin roboto ($size: 16px, $weight: 500) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: 'Roboto', sans-serif;
+}
+
+@mixin button {
+    width: 218px;
+    height: 50px;
+    display: flex;
+    @include center;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 25px;
+    background: linear-gradient(-10deg, $primary-color -5.2%, $second-color 110.74%);
+    color: white;
+}
+
+@mixin button-hover {
+    opacity: .85;
+    box-shadow: 0 4px 10px #00000059;
+}
+
+@mixin shadow {
+    box-shadow: 0 4px 15px #00000026;
+}
+
+@mixin fontAwesome ($content: '') {
+    content: $content;
+    font-weight: 900;
+    font-family: 'Font Awesome 5 Free';
+}
