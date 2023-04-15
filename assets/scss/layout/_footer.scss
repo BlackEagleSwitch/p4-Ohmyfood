@@ -19,6 +19,7 @@ footer {
             position: relative;
             @include roboto(16px, 500);
             color: white;
+            cursor: pointer;
         }
 
         a::before {
@@ -44,6 +45,25 @@ footer {
 
         #hands::before {
             content: '\f4c4';
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    footer {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        padding: 60px 55px 30px;
+        column-gap: 60px;
+
+        ul {
+            @include flex-row;
+            column-gap: 50px;
+
+            a::before {
+                left: -25px;
+            }
         }
     }
 }

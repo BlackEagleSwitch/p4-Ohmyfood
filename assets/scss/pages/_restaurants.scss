@@ -14,7 +14,7 @@
     padding: 40px 13px;
     margin-top: 220px;
 
-    span {
+    .titleRestaurants {
         display: flex;
         justify-content: space-between;
 
@@ -37,6 +37,7 @@
 
         .typeMenus {
             @include roboto(16px, 300);
+            text-transform: uppercase;
         }
 
         .typeMenus::after {
@@ -70,17 +71,19 @@
                 }
 
                 span {
+                    @include flex-column;
                     @include roboto(15px, 300);
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
                 }
-                
+
                 b {
                     display: flex;
                     align-items: end;
                     padding-bottom: 14px;
                 }
+
                 b::after {
                     display: flex;
                     @include center;
@@ -113,5 +116,22 @@
 
     a:hover {
         @include button-hover;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .imgRestaurants {
+        height: 383px;
+        top: 96px;
+    }
+
+    .sectMenus {
+        margin: 342px 12.5% 0;
+        padding: 50px 12.5% 40px;
+
+        .titleRestaurants {
+            justify-content: center;
+            column-gap: 24px;
+        }
     }
 }

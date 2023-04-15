@@ -10,10 +10,10 @@ nav {
 
     input {
         text-align: center;
-        @include w-h(35%, 20px);
+        @include w-h(145px, 20px);
         @include roboto(16px, 500);
         background-color: #EAEAEA;
-        padding-left: 10px;
+        padding-left: 8px;
     }
 
     input::placeholder {

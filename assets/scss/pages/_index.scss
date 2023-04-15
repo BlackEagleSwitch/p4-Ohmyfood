@@ -46,9 +46,10 @@
             align-items: center;
             border-radius: 20px;
             background-color: $background-color;
+            @include shadow(#00000026);
             position: relative;
             margin-left: 12px;
-            @include shadow(#00000026);
+            user-select: none;
 
             span {
                 @include flex-row;
@@ -140,6 +141,43 @@
                 position: absolute;
                 top: 23px;
                 right: 25px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .reservation {
+        h2 {
+            font-size: 40px;
+        }
+    }
+
+    .fonctionnement {
+        padding: 50px 150px;
+
+        ul {
+            @include flex-row;
+            column-gap: 24px;
+
+            li {
+                width: 33%;
+            }
+        }
+    }
+
+    .sectCards {
+        padding: 30px 180px;
+
+        ul {
+            flex-wrap: wrap;
+            @include flex-row;
+            column-gap: 100px;
+            row-gap: 50px;
+
+            li {
+                width: calc(50% - 50px);
+                cursor: pointer;
             }
         }
     }

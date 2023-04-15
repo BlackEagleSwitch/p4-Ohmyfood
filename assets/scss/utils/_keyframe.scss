@@ -1,7 +1,9 @@
 @keyframes heart {
-    100%{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        font-size: 25px;
         opacity: 1;
-        font-size: 1.65em;
-        margin-top: 1.5px;
-    } 
+    }
 }
