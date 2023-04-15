@@ -1,0 +1,57 @@
+#loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include w-h(100%, 100%);
+    background-color: white;
+    position: fixed;
+    z-index: 2;
+    animation: dispaire .5s 3.7s forwards;
+
+    span {
+        display: flex;
+        font-size: 40px;
+        font-family: 'Shrikhand', sans-serif;
+        animation: loader 1.5s forwards ease-in;
+        transform: translateY(-400px);
+        color: $second-color;
+        text-shadow: 2px 2px 4px $primary-color;
+
+        p {
+            animation: letter 1s forwards ease-in-out;
+        }
+
+        #one {
+            animation-delay: 1.5s;
+        }
+
+        #two {
+            animation-delay: 1.6s;
+        }
+
+        #tree {
+            animation-delay: 1.7s;
+        }
+
+        #four {
+            animation-delay: 1.8s;
+        }
+
+        #five {
+            animation-delay: 1.9s;
+        }
+
+        #six {
+            animation-delay: 2s;
+        }
+
+        #seven {
+            animation-delay: 2.1s;
+        }
+
+        #eight {
+            animation-delay: 2.2s;
+        }
+
+    }
+}
