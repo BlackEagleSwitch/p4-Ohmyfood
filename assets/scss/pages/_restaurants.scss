@@ -18,7 +18,7 @@
         display: flex;
         justify-content: space-between;
 
-        h2 {
+        span {
             font-size: 28px;
             font-weight: 100;
             font-family: 'Shrikhand', sans-serif;
@@ -133,6 +133,22 @@
 
     .sectMenus {
         margin: 342px 12.5% 0;
+        padding: 50px 12.5% 40px;
+
+        .titleRestaurants {
+            justify-content: center;
+            column-gap: 24px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) { 
+    .imgRestaurants {
+        top: 96px;
+    }
+
+    .sectMenus {
+        margin: 220px 10% 0;
         padding: 50px 12.5% 40px;
 
         .titleRestaurants {

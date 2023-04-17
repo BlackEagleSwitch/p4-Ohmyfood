@@ -67,3 +67,33 @@ footer {
         }
     }
 }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    footer {
+        align-items: center;
+        padding: 50px 180px;
+        row-gap: 25px;
+
+        h3 {
+            font-size: 30px;
+        }
+
+        ul {
+            @include flex-row;
+
+            row-gap: 15px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            a {
+                font-size: 20px;
+            }
+
+            a::before {
+                font-size: 20px;
+                top: 5px;
+                left: -30px;
+            }
+        }
+    }
+}

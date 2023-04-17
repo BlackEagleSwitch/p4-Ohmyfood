@@ -182,3 +182,38 @@
         }
     }
 }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .fonctionnement {
+        padding: unset;
+        padding: 50px 25%;
+
+        ul {
+            li {
+                span {
+                    margin-left: 47px;
+                }
+        
+                span::before {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+
+    .sectCards {
+        padding: 30px 80px;
+
+        ul {
+            flex-wrap: wrap;
+            @include flex-row;
+            column-gap: 80px;
+            row-gap: 50px;
+
+            li {
+                width: calc(50% - 40px);
+                cursor: pointer;
+            }
+        }
+    }
+}

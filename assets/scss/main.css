@@ -41,45 +41,50 @@ h1 {
   background-color: white;
   position: fixed;
   z-index: 2;
-  animation: dispaire 0.5s 3.7s forwards;
+  animation: dispaire 1s 3.7s forwards;
 }
-#loader span {
+#loader p {
   display: flex;
   font-size: 40px;
   font-family: "Shrikhand", sans-serif;
-  animation: loader 1.5s forwards ease-in;
+  animation: loader 3.6s forwards ease-in-out;
   transform: translateY(-400px);
   color: #FF79DA;
-  text-shadow: 2px 2px 4px #9356DC;
+  text-shadow: 1px 1px 1px #9356DC;
 }
-#loader span p {
-  animation: letter 1s forwards ease-in-out;
+#loader p span {
+  animation: letter 0.5s forwards linear;
 }
-#loader span #one {
-  animation-delay: 1.5s;
+#loader p span:nth-child(1) {
+  animation-delay: 1.15s;
 }
-#loader span #two {
+#loader p span:nth-child(2) {
+  animation-delay: 1.3s;
+}
+#loader p span:nth-child(3) {
+  animation-delay: 1.45s;
+}
+#loader p span:nth-child(4) {
   animation-delay: 1.6s;
 }
-#loader span #tree {
-  animation-delay: 1.7s;
+#loader p span:nth-child(5) {
+  animation-delay: 1.75s;
 }
-#loader span #four {
-  animation-delay: 1.8s;
-}
-#loader span #five {
+#loader p span:nth-child(6) {
   animation-delay: 1.9s;
 }
-#loader span #six {
-  animation-delay: 2s;
+#loader p span:nth-child(7) {
+  animation-delay: 2.05s;
 }
-#loader span #seven {
-  animation-delay: 2.1s;
-}
-#loader span #eight {
+#loader p span:nth-child(8) {
   animation-delay: 2.2s;
 }
 
+@media screen and (min-width: 768px) {
+  #loader span {
+    font-size: 1.3em;
+  }
+}
 header {
   height: 63px;
   display: flex;
@@ -120,6 +125,16 @@ header .fa-arrow-left:hover {
     font-size: 1.1em;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
     border: solid 1px rgba(0, 0, 0, 0.1490196078);
+    top: 34px;
+    left: 30px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  header {
+    height: 96px;
+  }
+  header .fa-arrow-left {
+    font-size: 1.8em;
     top: 34px;
     left: 30px;
   }
@@ -217,6 +232,31 @@ footer ul #hands::before {
   }
   footer ul a::before {
     left: -25px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  footer {
+    align-items: center;
+    padding: 50px 180px;
+    row-gap: 25px;
+  }
+  footer h3 {
+    font-size: 30px;
+  }
+  footer ul {
+    display: flex;
+    flex-direction: row;
+    row-gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  footer ul a {
+    font-size: 20px;
+  }
+  footer ul a::before {
+    font-size: 20px;
+    top: 5px;
+    left: -30px;
   }
 }
 .reservation {
@@ -422,6 +462,33 @@ footer ul #hands::before {
     cursor: pointer;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .fonctionnement {
+    padding: unset;
+    padding: 50px 25%;
+  }
+  .fonctionnement ul li span {
+    margin-left: 47px;
+  }
+  .fonctionnement ul li span::before {
+    margin-right: 30px;
+  }
+  .sectCards {
+    padding: 30px 80px;
+  }
+  .sectCards ul {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    -moz-column-gap: 80px;
+         column-gap: 80px;
+    row-gap: 50px;
+  }
+  .sectCards ul li {
+    width: calc(50% - 40px);
+    cursor: pointer;
+  }
+}
 .imgRestaurants {
   width: 100%;
   height: 275px;
@@ -445,7 +512,7 @@ footer ul #hands::before {
   display: flex;
   justify-content: space-between;
 }
-.sectMenus .titleRestaurants h2 {
+.sectMenus .titleRestaurants span {
   font-size: 28px;
   font-weight: 100;
   font-family: "Shrikhand", sans-serif;
@@ -583,6 +650,20 @@ footer ul #hands::before {
          column-gap: 24px;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .imgRestaurants {
+    top: 96px;
+  }
+  .sectMenus {
+    margin: 220px 10% 0;
+    padding: 50px 12.5% 40px;
+  }
+  .sectMenus .titleRestaurants {
+    justify-content: center;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+}
 .containerHeart {
   width: 28px;
   height: 28px;
@@ -635,26 +716,37 @@ footer ul #hands::before {
   }
 }
 @keyframes loader {
-  90% {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
     transform: translateY(0px);
+  }
+  33% {
+    transform: translateY(0px);
+  }
+  80% {
+    opacity: 1;
   }
   100% {
     transform: translateY(0px);
+    opacity: 0;
   }
 }
 @keyframes letter {
-  25% {
-    transform: translateY(-20px);
-  }
-  75% {
-    transform: translateY(20px);
+  50% {
+    transform: translateY(-15px);
   }
   100% {
     transform: translateY(0px);
   }
 }
 @keyframes dispaire {
-  to {
+  0% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
     z-index: -5;
   }

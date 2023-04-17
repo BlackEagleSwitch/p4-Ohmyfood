@@ -6,52 +6,32 @@
     background-color: white;
     position: fixed;
     z-index: 2;
-    animation: dispaire .5s 3.7s forwards;
+    animation: dispaire 1s 3.7s forwards;
 
-    span {
+    p {
         display: flex;
         font-size: 40px;
         font-family: 'Shrikhand', sans-serif;
-        animation: loader 1.5s forwards ease-in;
+        animation: loader 3.6s forwards ease-in-out;
         transform: translateY(-400px);
         color: $second-color;
-        text-shadow: 2px 2px 4px $primary-color;
+        text-shadow: 1px 1px 1px $primary-color;
 
-        p {
-            animation: letter 1s forwards ease-in-out;
+        span {
+            @for $i from 1 through 8 {
+                &:nth-child(#{$i}){
+                    animation-delay: calc(1s + calc(.15s * $i));
+                }
+            }
+            animation: letter .5s forwards linear;
         }
+    }
+}
 
-        #one {
-            animation-delay: 1.5s;
+@media screen and (min-width: 768px) {
+    #loader {
+        span {
+            font-size: 1.3em;
         }
-
-        #two {
-            animation-delay: 1.6s;
-        }
-
-        #tree {
-            animation-delay: 1.7s;
-        }
-
-        #four {
-            animation-delay: 1.8s;
-        }
-
-        #five {
-            animation-delay: 1.9s;
-        }
-
-        #six {
-            animation-delay: 2s;
-        }
-
-        #seven {
-            animation-delay: 2.1s;
-        }
-
-        #eight {
-            animation-delay: 2.2s;
-        }
-
     }
 }
