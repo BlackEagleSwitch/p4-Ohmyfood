@@ -1,64 +1,68 @@
 .imgRestaurants {
+    max-width: 1400px;
     @include w-h(100%, 275px);
     object-fit: cover;
     position: absolute;
-    z-index: -1;
     top: 63px;
+    z-index: -1;
 }
 
-.sectMenus {
+.sectMenus {    
     row-gap: 40px;
     @include flex-column;
     background-color: $background-color;
-    border-radius: 40px;
-    padding: 40px 13px;
+    border-radius: 40px 40px 0 0;
+    padding: 32px 13px 0;
     margin-top: 220px;
 
     .titleRestaurants {
-        display: flex;
-        justify-content: space-between;
-
-        span {
-            font-size: 28px;
-            font-weight: 100;
-            font-family: 'Shrikhand', sans-serif;
-        }
+        font-size: 28px;
+        font-weight: 100;
+        font-family: 'Shrikhand', sans-serif;
+        position: relative;
 
         .containerHeart {
-            margin-right: 28px;
-            position: relative;
-            top: 6px;
+            position: absolute;
+            top: 14%;
+            right: 25px;
+
+            .fa-heart {
+                font-weight: 100;
+            }
         }
     }
 
     .containerMenus {
-        @include flex-column;
         row-gap: 12px;
+        @include flex-column;
 
         .typeMenus {
             @include roboto(16px, 300);
-            text-transform: uppercase;
+            text-transform : uppercase;
         }
 
         .typeMenus::after {
             content: '';
             display: flex;
-            margin-top: 4px;
-            @include w-h(40px, 3px);
+            @include w-h(40px, 2px);
             background-color: $third-color;
+            margin-top: 4px;
         }
 
         ul {
-            @include flex-column;
-            row-gap: 12px;
-
+        row-gap: 12px;
+        @include flex-column;
+            
             li {
-                height: 69px;
+                @include w-h(100%, 69px);
                 display: flex;
-                border-radius: 15px;
-                background-color: white;
-                @include shadow(#0000001A);
+                align-items: end;
+                justify-content: space-between;
                 @include roboto(15px, 700);
+                @include shadow(#0000001A);
+                background-color: white;
+                border-radius: 15px;
+                
                 @for $i from 1 through 4 {
                     &:nth-child(#{$i}){
                         animation-delay: .5s*$i;
@@ -66,50 +70,53 @@
                 }
                 animation: happen 1.5s both;
 
-                p {
-                    width: 100%;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    @include roboto(18px, 500);
-                    padding: 12px 15px;
-                    line-height: 22px;
-                }
-
-                span {
-                    @include flex-column;
-                    @include roboto(15px, 300);
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                }
-
-                b {
+                &::after{
                     display: flex;
-                    align-items: end;
-                    padding-bottom: 14px;
-                }
-
-                b::after {
-                    display: flex;
+                    font-size: 0px;
                     @include center;
                     @include w-h(0, 69px);
                     @include fontAwesome('\f058');
                     background-color: $third-color;
                     border-radius: 0 15px 15px 0;
-                    margin-left: 15px;
                     transition: .5s;
                     color: white;
-                    font-size: 0;
-                    position: relative;
-                    top: 14px;
+                }
+
+                p {
+                    width: 80%;
+                    row-gap: 4px;
+                    @include flex-column;
+                    padding: 12px 15px;
+                    transition: .5s;
+
+                    span {
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        @include roboto(15px, 300);
+                    }
+
+                    .bold {
+                        @include roboto(18px, 500);
+                    }
+                }
+
+                i {
+                    width: 20%;
+                    font-style: normal;
+                    padding: 13px 15px;
+                    transition: .5s;
                 }
             }
 
             li:hover {
-                b::after {
+                &::after {
                     width: 59px;
                     font-size: 20px;
+                }
+
+                p {
+                    width: calc(80% - 59px);
                 }
             }
         }
@@ -117,7 +124,7 @@
 
     a {
         @include button;
-        margin: auto;
+        margin: 0 auto 40px;
     }
 
     a:hover {
@@ -132,28 +139,62 @@
     }
 
     .sectMenus {
-        margin: 342px 12.5% 0;
-        padding: 50px 12.5% 40px;
+        margin: 343px 12.5% 0;
+        padding: 51px 12.5% 0;
 
         .titleRestaurants {
+            display: flex;
             justify-content: center;
-            column-gap: 24px;
+
+            .containerHeart {
+                right: 23%;
+            }
+        }
+
+        .containerMenus ul li {
+            p {
+                width: 90%;
+            }
+            i {
+                width: 10%;
+            }
+        }
+
+        .containerMenus ul li:hover {
+            p {
+                width: calc(90% - 59px);
+            }
         }
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) { 
-    .imgRestaurants {
-        top: 96px;
-    }
-
     .sectMenus {
         margin: 220px 10% 0;
-        padding: 50px 12.5% 40px;
+        padding: 51px 10% 0;
 
         .titleRestaurants {
+            display: flex;
             justify-content: center;
-            column-gap: 24px;
+
+            .containerHeart {
+                right: 15%;
+            }
+        }
+
+        .containerMenus ul li {
+            p {
+                width: 90%;
+            }
+            i {
+                width: 10%;
+            }
+        }
+
+        .containerMenus ul li:hover {
+            p {
+                width: calc(90% - 59px);
+            }
         }
     }
 }

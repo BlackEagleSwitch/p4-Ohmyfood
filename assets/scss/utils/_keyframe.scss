@@ -1,10 +1,19 @@
 @keyframes heart {
     0% {
-        opacity: 0;
+        font-size: 24px;
+    }
+    49% {
+        font-weight: 100;
+    }
+    50% {
+        @include gradiant;
+        font-weight: 900;
+        font-size: 0;
     }
     100% {
-        font-size: 25px;
-        opacity: 1;
+        @include gradiant;
+        font-weight: 900;
+        font-size: 24px;
     }
 }
 

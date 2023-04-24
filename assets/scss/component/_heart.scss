@@ -1,35 +1,18 @@
 .containerHeart {
     @include w-h(28px, 28px);
 
-    i {
-        @include w-h(28px, 28px);
-        display: flex;
-        font-size: 25px;
-        @include center;
+    .fa-heart {
+        font-size: 24px;
         position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
         cursor: pointer;
-    }
-
-    .far {
-        transition: 1s;
-    }
-
-    .fas {
-        font-size: 0;
-        background: -webkit-linear-gradient(-10deg, $primary-color -5.2%, $second-color 110.74%);
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        transition: 1s;
     }
 }
 
 .containerHeart:hover {
-    .far {
-        opacity: 0;
-        font-size: 0;
-    }
-
-    .fas {
-        animation: heart .5s forwards;
+    .fa-heart {
+        animation: heart .5s 1 linear forwards;
     }
 }

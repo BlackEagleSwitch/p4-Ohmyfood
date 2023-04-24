@@ -1,3 +1,9 @@
+body {
+    user-select: none;
+    max-width: 1400px;
+    margin: auto;
+}
+
 a {
     all: unset;
     text-decoration: none;
@@ -22,4 +28,8 @@ h1 {
     font-size: 30px;
     font-weight: 100;
     font-family: 'Shrikhand', sans-serif;
+}
+
+h2 {
+    @include roboto(24px, 700);
 }

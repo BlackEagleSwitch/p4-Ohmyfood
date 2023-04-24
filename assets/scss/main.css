@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  max-width: 1400px;
+  margin: auto;
+}
+
 a {
   all: unset;
   text-decoration: none;
@@ -32,7 +40,14 @@ h1 {
   font-family: "Shrikhand", sans-serif;
 }
 
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
 #loader {
+  max-width: 1400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,48 +109,26 @@ header {
   position: relative;
   z-index: 1;
 }
-header .fa-arrow-left {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.2em;
-  border-radius: 15px;
-  background: -webkit-linear-gradient(-10deg, #9356DC -5.2%, #FF79DA 110.74%);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
+header .fas {
   position: absolute;
-  top: 18px;
-  left: 20px;
-  transition: 0.2s;
+  top: 23px;
+  left: 23px;
+  cursor: pointer;
 }
-header .fa-arrow-left:hover {
-  box-shadow: none;
-  opacity: 0.9;
+header .fas:hover {
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 992px) {
   header {
     height: 96px;
   }
-  header .fa-arrow-left {
-    font-size: 1.1em;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
-    border: solid 1px rgba(0, 0, 0, 0.1490196078);
-    top: 34px;
-    left: 30px;
+  header h1 {
+    font-size: 35px;
   }
-}
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  header {
-    height: 96px;
-  }
-  header .fa-arrow-left {
-    font-size: 1.8em;
-    top: 34px;
+  header .fas {
+    font-size: 22px;
+    top: 39px;
     left: 30px;
   }
 }
@@ -146,23 +139,20 @@ nav {
   justify-content: center;
   background-color: #EAEAEA;
 }
-nav .fa-location-dot {
-  color: #353535;
-}
 nav input {
+  width: 143px;
   text-align: center;
-  width: 145px;
-  height: 20px;
   font-size: 16px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
-  background-color: #EAEAEA;
+  background-color: transparent;
   padding-left: 8px;
+  margin-right: 8px;
 }
 nav input::-moz-placeholder {
   color: #353535;
 }
-nav input::placeholder {
+nav input::placeholder, nav .fas {
   color: #353535;
 }
 
@@ -173,18 +163,39 @@ footer {
   background-color: #353535;
   padding: 22px 25px;
 }
+footer ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+}
 footer h3 {
   font-size: 18px;
   font-weight: 100;
   font-family: "Shrikhand", sans-serif;
   color: white;
 }
-footer ul {
-  display: flex;
-  flex-direction: column;
-  row-gap: 7px;
+footer #ustensil,
+footer #hands {
+  margin-left: 24px;
 }
-footer ul a {
+footer #ustensil::before,
+footer #hands::before {
+  font-size: 13px;
+  content: "";
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  top: 3px;
+}
+footer #ustensil::before {
+  content: "\f2e7";
+  left: -24px;
+}
+footer #hands::before {
+  content: "\f4c4";
+  left: -26px;
+}
+footer a {
   position: relative;
   font-size: 16px;
   font-weight: 500;
@@ -192,37 +203,17 @@ footer ul a {
   color: white;
   cursor: pointer;
 }
-footer ul a::before {
-  font-size: 13px;
-  content: "";
-  font-weight: 900;
-  font-family: "Font Awesome 5 Free";
-  position: absolute;
-  top: 2px;
-  left: -20px;
-}
-footer ul a:hover {
-  opacity: 0.5;
-}
-footer ul #ustensil,
-footer ul #hands {
-  margin-left: 20px;
-}
-footer ul #ustensil::before {
-  content: "\f2e7";
-}
-footer ul #hands::before {
-  content: "\f4c4";
+footer a:hover {
+  opacity: 0.6;
 }
 
 @media screen and (min-width: 992px) {
   footer {
-    display: flex;
+    -moz-column-gap: 100px;
+         column-gap: 100px;
     align-items: center;
     flex-direction: row-reverse;
-    padding: 60px 55px 30px;
-    -moz-column-gap: 60px;
-         column-gap: 60px;
+    padding: 57px 57px 30px;
   }
   footer ul {
     display: flex;
@@ -230,55 +221,46 @@ footer ul #hands::before {
     -moz-column-gap: 50px;
          column-gap: 50px;
   }
-  footer ul a::before {
-    left: -25px;
-  }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
   footer {
-    align-items: center;
-    padding: 50px 180px;
-    row-gap: 25px;
+    row-gap: 30px;
+    padding: 40px;
   }
   footer h3 {
-    font-size: 30px;
+    font-size: 24px;
+    text-align: center;
   }
   footer ul {
-    display: flex;
-    flex-direction: row;
-    row-gap: 15px;
     flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 10px;
+    row-gap: 20px;
   }
-  footer ul a {
-    font-size: 20px;
+  footer ul li {
+    width: 50%;
+    display: flex;
+    justify-content: center;
   }
-  footer ul a::before {
-    font-size: 20px;
-    top: 5px;
-    left: -30px;
+  footer ul li a {
+    font-size: 1.2em;
   }
 }
 .reservation {
-  row-gap: 15px;
+  text-align: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   background-color: #F6F6F6;
   padding: 40px 30px;
 }
 .reservation h2 {
-  font-size: 24px;
-  font-weight: 700;
-  font-family: "Roboto", sans-serif;
-  padding: 0 15px;
+  margin: 0 20px 10px;
 }
 .reservation p {
   font-size: 18px;
   font-weight: 300;
   font-family: "Roboto", sans-serif;
-  color: #353535;
 }
 .reservation a {
   width: 218px;
@@ -286,12 +268,14 @@ footer ul #hands::before {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 25px;
+  font-size: 16px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
-  border-radius: 25px;
   background: linear-gradient(-10deg, #9356DC -5.2%, #FF79DA 110.74%);
   color: white;
-  margin: 15px 0;
+  cursor: pointer;
+  margin: 30px 0 10px;
 }
 .reservation a:hover {
   opacity: 0.85;
@@ -302,18 +286,14 @@ footer ul #hands::before {
   row-gap: 26px;
   display: flex;
   flex-direction: column;
-  padding: 48px 20px;
-}
-.fonctionnement h2 {
-  font-size: 24px;
-  font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  padding: 48px 20px 68px;
 }
 .fonctionnement ul {
-  counter-reset: counter;
+  row-gap: 25px;
   display: flex;
   flex-direction: column;
-  row-gap: 25px;
+  padding-left: 12.5px;
+  counter-reset: counter;
 }
 .fonctionnement ul li {
   height: 72px;
@@ -322,32 +302,23 @@ footer ul #hands::before {
   border-radius: 20px;
   background-color: #F6F6F6;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1490196078);
-  position: relative;
-  margin-left: 12px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-.fonctionnement ul li span {
-  display: flex;
-  flex-direction: row;
-  margin-left: 32px;
   font-size: 16px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
+  position: relative;
+}
+.fonctionnement ul li span {
+  margin-left: 70px;
+  position: relative;
 }
 .fonctionnement ul li span::before {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  color: #7E7E7E;
-  margin-right: 20px;
+  width: 35px;
   content: "";
   font-weight: 900;
   font-family: "Font Awesome 5 Free";
+  color: #7E7E7E;
+  position: absolute;
+  left: -35px;
 }
 .fonctionnement ul li #phone::before {
   content: "\f3cd";
@@ -367,136 +338,151 @@ footer ul #hands::before {
   height: 24px;
   content: counter(counter);
   counter-increment: counter;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
   background-color: #9356DC;
   border-radius: 12px;
+  font-size: 14px;
   color: white;
   position: absolute;
-  left: -12px;
+  left: -12.5px;
 }
 
 .sectCards {
-  row-gap: 25px;
+  row-gap: 30px;
   display: flex;
   flex-direction: column;
-  background-color: #F6F6F6;
   padding: 54px 20px 66px;
-}
-.sectCards h2 {
-  font-size: 24px;
-  font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  background-color: #F6F6F6;
 }
 .sectCards ul {
   display: flex;
   flex-direction: column;
   row-gap: 18px;
 }
-.sectCards ul img {
-  border-radius: 15px 15px 0 0;
+.sectCards li {
+  height: 251px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1019607843);
+  position: relative;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.sectCards li a {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.sectCards li a img {
   width: 100%;
   height: 174px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.sectCards ul .desc {
-  height: 77px;
+.sectCards li a .new {
   display: flex;
-  background-color: white;
-  border-radius: 0 0 15px 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1019607843);
-  position: relative;
-  top: -3px;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 29px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  background-color: #99E2D0;
+  color: #008766;
+  border-radius: 2px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
-.sectCards ul .desc p {
-  width: 265px;
-  display: flex;
-  flex-direction: column;
+.sectCards li a p {
   font-size: 18px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
-  padding: 16px 20px 16px 13px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 13px;
 }
-.sectCards ul .desc p span {
+.sectCards li a p span {
   font-size: 17px;
   font-weight: 300;
   font-family: "Roboto", sans-serif;
 }
-.sectCards ul .desc .containerHeart {
+.sectCards li .containerHeart {
   position: absolute;
-  top: 23px;
+  bottom: 25px;
   right: 25px;
 }
 
 @media screen and (min-width: 992px) {
   .reservation h2 {
     font-size: 40px;
+    margin-bottom: 20px;
   }
   .fonctionnement {
-    padding: 50px 150px;
+    padding: 50px 12.5%;
   }
   .fonctionnement ul {
+    -moz-column-gap: 30px;
+         column-gap: 30px;
     display: flex;
     flex-direction: row;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
   }
   .fonctionnement ul li {
     width: 33%;
   }
   .sectCards {
-    padding: 30px 180px;
+    padding: 30px 12.5%;
   }
   .sectCards ul {
-    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 50px;
     -moz-column-gap: 100px;
          column-gap: 100px;
-    row-gap: 50px;
   }
   .sectCards ul li {
     width: calc(50% - 50px);
-    cursor: pointer;
+  }
+  .sectCards ul li:hover {
+    transform: scale(1.1);
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
+  .reservation h2 {
+    font-size: 30px;
+  }
   .fonctionnement {
-    padding: unset;
     padding: 50px 25%;
   }
   .fonctionnement ul li span {
-    margin-left: 47px;
+    margin-left: 100px;
   }
   .fonctionnement ul li span::before {
-    margin-right: 30px;
+    left: -50px;
   }
   .sectCards {
-    padding: 30px 80px;
+    padding: 30px 10%;
   }
   .sectCards ul {
-    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
-    -moz-column-gap: 80px;
-         column-gap: 80px;
-    row-gap: 50px;
+    flex-wrap: wrap;
+    gap: 50px;
   }
   .sectCards ul li {
-    width: calc(50% - 40px);
-    cursor: pointer;
+    width: calc(50% - 25px);
   }
 }
 .imgRestaurants {
+  max-width: 1400px;
   width: 100%;
   height: 275px;
   -o-object-fit: cover;
      object-fit: cover;
   position: absolute;
-  z-index: -1;
   top: 63px;
+  z-index: -1;
 }
 
 .sectMenus {
@@ -504,28 +490,28 @@ footer ul #hands::before {
   display: flex;
   flex-direction: column;
   background-color: #F6F6F6;
-  border-radius: 40px;
-  padding: 40px 13px;
+  border-radius: 40px 40px 0 0;
+  padding: 32px 13px 0;
   margin-top: 220px;
 }
 .sectMenus .titleRestaurants {
-  display: flex;
-  justify-content: space-between;
-}
-.sectMenus .titleRestaurants span {
   font-size: 28px;
   font-weight: 100;
   font-family: "Shrikhand", sans-serif;
+  position: relative;
 }
 .sectMenus .titleRestaurants .containerHeart {
-  margin-right: 28px;
-  position: relative;
-  top: 6px;
+  position: absolute;
+  top: 14%;
+  right: 25px;
+}
+.sectMenus .titleRestaurants .containerHeart .fa-heart {
+  font-weight: 100;
 }
 .sectMenus .containerMenus {
+  row-gap: 12px;
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
 }
 .sectMenus .containerMenus .typeMenus {
   font-size: 16px;
@@ -536,25 +522,28 @@ footer ul #hands::before {
 .sectMenus .containerMenus .typeMenus::after {
   content: "";
   display: flex;
-  margin-top: 4px;
   width: 40px;
-  height: 3px;
+  height: 2px;
   background-color: #99E2D0;
+  margin-top: 4px;
 }
 .sectMenus .containerMenus ul {
+  row-gap: 12px;
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
 }
 .sectMenus .containerMenus ul li {
+  width: 100%;
   height: 69px;
   display: flex;
-  border-radius: 15px;
-  background-color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1019607843);
+  align-items: end;
+  justify-content: space-between;
   font-size: 15px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1019607843);
+  background-color: white;
+  border-radius: 15px;
   animation: happen 1.5s both;
 }
 .sectMenus .containerMenus ul li:nth-child(1) {
@@ -569,34 +558,9 @@ footer ul #hands::before {
 .sectMenus .containerMenus ul li:nth-child(4) {
   animation-delay: 2s;
 }
-.sectMenus .containerMenus ul li p {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  padding: 12px 15px;
-  line-height: 22px;
-}
-.sectMenus .containerMenus ul li span {
+.sectMenus .containerMenus ul li::after {
   display: flex;
-  flex-direction: column;
-  font-size: 15px;
-  font-weight: 300;
-  font-family: "Roboto", sans-serif;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.sectMenus .containerMenus ul li b {
-  display: flex;
-  align-items: end;
-  padding-bottom: 14px;
-}
-.sectMenus .containerMenus ul li b::after {
-  display: flex;
+  font-size: 0px;
   align-items: center;
   justify-content: center;
   width: 0;
@@ -606,16 +570,42 @@ footer ul #hands::before {
   font-family: "Font Awesome 5 Free";
   background-color: #99E2D0;
   border-radius: 0 15px 15px 0;
-  margin-left: 15px;
   transition: 0.5s;
   color: white;
-  font-size: 0;
-  position: relative;
-  top: 14px;
 }
-.sectMenus .containerMenus ul li:hover b::after {
+.sectMenus .containerMenus ul li p {
+  width: 80%;
+  row-gap: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 15px;
+  transition: 0.5s;
+}
+.sectMenus .containerMenus ul li p span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+}
+.sectMenus .containerMenus ul li p .bold {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.sectMenus .containerMenus ul li i {
+  width: 20%;
+  font-style: normal;
+  padding: 13px 15px;
+  transition: 0.5s;
+}
+.sectMenus .containerMenus ul li:hover::after {
   width: 59px;
   font-size: 20px;
+}
+.sectMenus .containerMenus ul li:hover p {
+  width: calc(80% - 59px);
 }
 .sectMenus a {
   width: 218px;
@@ -623,12 +613,14 @@ footer ul #hands::before {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 25px;
+  font-size: 16px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
-  border-radius: 25px;
   background: linear-gradient(-10deg, #9356DC -5.2%, #FF79DA 110.74%);
   color: white;
-  margin: auto;
+  cursor: pointer;
+  margin: 0 auto 40px;
 }
 .sectMenus a:hover {
   opacity: 0.85;
@@ -641,70 +633,87 @@ footer ul #hands::before {
     top: 96px;
   }
   .sectMenus {
-    margin: 342px 12.5% 0;
-    padding: 50px 12.5% 40px;
+    margin: 343px 12.5% 0;
+    padding: 51px 12.5% 0;
   }
   .sectMenus .titleRestaurants {
+    display: flex;
     justify-content: center;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+  }
+  .sectMenus .titleRestaurants .containerHeart {
+    right: 23%;
+  }
+  .sectMenus .containerMenus ul li p {
+    width: 90%;
+  }
+  .sectMenus .containerMenus ul li i {
+    width: 10%;
+  }
+  .sectMenus .containerMenus ul li:hover p {
+    width: calc(90% - 59px);
   }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .imgRestaurants {
-    top: 96px;
-  }
   .sectMenus {
     margin: 220px 10% 0;
-    padding: 50px 12.5% 40px;
+    padding: 51px 10% 0;
   }
   .sectMenus .titleRestaurants {
+    display: flex;
     justify-content: center;
-    -moz-column-gap: 24px;
-         column-gap: 24px;
+  }
+  .sectMenus .titleRestaurants .containerHeart {
+    right: 15%;
+  }
+  .sectMenus .containerMenus ul li p {
+    width: 90%;
+  }
+  .sectMenus .containerMenus ul li i {
+    width: 10%;
+  }
+  .sectMenus .containerMenus ul li:hover p {
+    width: calc(90% - 59px);
   }
 }
 .containerHeart {
   width: 28px;
   height: 28px;
 }
-.containerHeart i {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  font-size: 25px;
-  align-items: center;
-  justify-content: center;
+.containerHeart .fa-heart {
+  font-size: 24px;
   position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
   cursor: pointer;
 }
-.containerHeart .far {
-  transition: 1s;
-}
-.containerHeart .fas {
-  font-size: 0;
-  background: -webkit-linear-gradient(-10deg, #9356DC -5.2%, #FF79DA 110.74%);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
-  transition: 1s;
-}
 
-.containerHeart:hover .far {
-  opacity: 0;
-  font-size: 0;
-}
-.containerHeart:hover .fas {
-  animation: heart 0.5s forwards;
+.containerHeart:hover .fa-heart {
+  animation: heart 0.5s 1 linear forwards;
 }
 
 @keyframes heart {
   0% {
-    opacity: 0;
+    font-size: 24px;
+  }
+  49% {
+    font-weight: 100;
+  }
+  50% {
+    background: -webkit-linear-gradient(-10deg, #9356DC -5.2%, #FF79DA 110.74%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    font-weight: 900;
+    font-size: 0;
   }
   100% {
-    font-size: 25px;
-    opacity: 1;
+    background: -webkit-linear-gradient(-10deg, #9356DC -5.2%, #FF79DA 110.74%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    font-weight: 900;
+    font-size: 24px;
   }
 }
 @keyframes happen {

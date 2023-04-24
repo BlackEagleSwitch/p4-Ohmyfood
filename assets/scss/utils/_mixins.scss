@@ -29,11 +29,11 @@
     height: 50px;
     display: flex;
     @include center;
-    font-weight: 500;
-    font-family: 'Roboto', sans-serif;
     border-radius: 25px;
+    @include roboto(16px, 500);
     background: linear-gradient(-10deg, $primary-color -5.2%, $second-color 110.74%);
     color: white;
+    cursor: pointer;
 }
 
 @mixin button-hover {
@@ -49,4 +49,10 @@
     content: $content;
     font-weight: 900;
     font-family: 'Font Awesome 5 Free';
+}
+
+@mixin gradiant {
+    background: -webkit-linear-gradient(-10deg, $primary-color -5.2%, $second-color 110.74%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }

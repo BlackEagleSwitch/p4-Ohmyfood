@@ -4,6 +4,11 @@ footer {
     background-color: #353535;
     padding: 22px 25px;
 
+    ul {
+        @include flex-column;
+        row-gap: 7px;
+    }
+
     h3 {
         font-size: 18px;
         font-weight: 100;
@@ -11,88 +16,79 @@ footer {
         color: white;
     }
 
-    ul {
-        @include flex-column;
-        row-gap: 7px;
+    #ustensil, 
+    #hands {
+        margin-left: 24px;
+    }
 
-        a {
-            position: relative;
-            @include roboto(16px, 500);
-            color: white;
-            cursor: pointer;
-        }
+    #ustensil::before, 
+    #hands::before {
+        font-size: 13px;
+        @include fontAwesome;
+        position: absolute;
+        top: 3px;
+    }
 
-        a::before {
-            font-size: 13px;
-            @include fontAwesome;
-            position: absolute;
-            top: 2px;
-            left: -20px;
-        }
+    #ustensil::before {
+        content: '\f2e7';
+        left: -24px;
+    }
 
-        a:hover {
-            opacity: .5;
-        }
+    #hands::before {
+        content: '\f4c4';
+        left: -26px;
+    }
 
-        #ustensil,
-        #hands {
-            margin-left: 20px;
-        }
+    a {
+        position: relative;
+        @include roboto(16px, 500);
+        color: white;
+        cursor: pointer;
+    }
 
-        #ustensil::before {
-            content: '\f2e7';
-        }
-
-        #hands::before {
-            content: '\f4c4';
-        }
+    a:hover {
+        opacity: .6;
     }
 }
 
 @media screen and (min-width: 992px) {
     footer {
-        display: flex;
+        column-gap: 100px;
         align-items: center;
         flex-direction: row-reverse;
-        padding: 60px 55px 30px;
-        column-gap: 60px;
+        padding: 57px 57px 30px;
 
         ul {
             @include flex-row;
             column-gap: 50px;
-
-            a::before {
-                left: -25px;
-            }
         }
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     footer {
-        align-items: center;
-        padding: 50px 180px;
-        row-gap: 25px;
+        row-gap: 30px;
+        padding: 40px;
 
         h3 {
-            font-size: 30px;
+            font-size: 24px;
+            text-align: center;
         }
 
         ul {
-            @include flex-row;
-
-            row-gap: 15px;
             flex-wrap: wrap;
-            justify-content: space-around;
+            flex-direction: row;
+            margin-bottom: 10px;
+            row-gap: 20px;
 
-            a {
-                font-size: 20px;
-            }
+            li {
+                width: 50%;
+                display: flex;
+                justify-content: center;
 
-            a::before {
-                font-size: 20px;
-                top: 5px;
-                left: -30px;
+                a {
+                    font-size: 1.2em;
+                }
             }
         }
     }
