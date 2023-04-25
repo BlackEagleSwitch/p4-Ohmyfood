@@ -328,6 +328,8 @@ footer a:hover {
 }
 .fonctionnement ul li #market::before {
   content: "\f54e";
+}
+.fonctionnement ul li:hover span::before {
   color: #9356DC;
 }
 .fonctionnement ul li::before {
@@ -730,9 +732,6 @@ footer a:hover {
   }
   30% {
     opacity: 1;
-    transform: translateY(0px);
-  }
-  33% {
     transform: translateY(0px);
   }
   80% {

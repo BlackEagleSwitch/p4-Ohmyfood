@@ -67,6 +67,11 @@
 
             #market::before {
                 content: '\f54e';
+            }
+        }
+
+        li:hover {
+            span::before {
                 color: $primary-color;
             }
         }
